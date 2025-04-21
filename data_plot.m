@@ -15,6 +15,8 @@ time_in_seconds = seconds(time - time(1));
 TIC3011_PV = T{:, 10};  % actual value
 TIC3011_SV = T{:, 11};  % reference
 
+TrakingError = TIC3011_SV - TIC3011_PV;
+
 figure;
 plot(time_in_seconds, TIC3011_PV, 'b', 'DisplayName', 'TIC3011.PV (Actual)');
 hold on;
@@ -23,4 +25,11 @@ xlabel('Time (seconds)');
 ylabel('Value');
 legend;
 title('TIC3011 Actual vs Reference Trend');
+grid on;
+
+figure;
+plot(time_in_seconds, TrakingError, 'b', 'DisplayName', 'Tracking Error');
+xlabel('Time (seconds)');
+ylabel('Value');
+title('Tracking Error');
 grid on;
