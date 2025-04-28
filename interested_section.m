@@ -24,9 +24,11 @@ interested_index_end = find( time_in_seconds == 1975960, 1);
 interested_time = time_in_seconds(interested_index_start : interested_index_end);
 interested_TrakingError = TrakingError(interested_index_start : interested_index_end);
 der_interested_TrakingError = diff(interested_TrakingError)/10;
+der_der_interested_TrakingError = diff(der_interested_TrakingError)/10;
 
-interested_time = interested_time(1: end-1);
-interested_TrakingError = interested_TrakingError(1: end-1);
+interested_time = interested_time(1: end-2);
+interested_TrakingError = interested_TrakingError(1: end-2);
+interested_der_interested_TrakingError = der_interested_TrakingError(1: end-1);
 
 %%
 
@@ -37,4 +39,6 @@ ylabel('Value');
 title('Interested Tracking Error and Its Derivative');
 grid on;
 hold on
-plot(interested_time, der_interested_TrakingError, 'r', 'DisplayName', 'Tracking Error Derivative');
+plot(interested_time, interested_der_interested_TrakingError, 'r', 'DisplayName', 'Tracking Error Derivative');
+hold on
+plot(interested_time, der_der_interested_TrakingError, 'DisplayName', 'Second Tracking Error Derivative');
