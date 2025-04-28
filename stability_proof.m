@@ -1,6 +1,3 @@
-clear
-close all
-clc
 warning on
 %% Highlight the important training parameters
 lambda_val = 0;
@@ -10,37 +7,12 @@ learning_rate = 1e-2;
 gamma = 1e-4;
 
 %% Adopt csv data 
-% Start idx: 1372,  End idx: 2340 or 2266 (first phase) 
-% takes: idx_init = 1380,  idx_final = 2260
 
-idx_init = 1380;
-idx_final = 2260;
+time_interested = interested_time;
 
-UR5_experiment = readtable('robot_data.csv');
-
-sample_time_csv = 0.002; % 500 Hz
-
-time_csv = UR5_experiment.timestamp;
-
-q_ref = UR5_experiment.target_q_0;
-dq_ref = UR5_experiment.target_qd_0;
-ddq_ref = UR5_experiment.target_qdd_0;
-
-q_actual = UR5_experiment.actual_q_0;
-dq_actual = UR5_experiment.actual_qd_0;
-
-e_csv = q_actual - q_ref;
-de_csv = dq_actual - dq_ref;
-
-dde_csv = diff(de_csv) / sample_time_csv;  % lose 1 row
-% dde_csv = smooth(dde_csv);
-% time_dde_csv = time_csv(1:end-1);
-
-time_interested = time_csv(idx_init:idx_final) - time_csv(idx_init);
-
-e_interested = e_csv(idx_init:idx_final);
-de_interested = de_csv(idx_init:idx_final);
-dde_interested = dde_csv(idx_init:idx_final);
+e_interested = interested_TrakingError;
+de_interested = interested_der_interested_TrakingError;
+dde_interested = der_der_interested_TrakingError;
 
 n1 = 1; % The number of experiments
 dimension = 2;
