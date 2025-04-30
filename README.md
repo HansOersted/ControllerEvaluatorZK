@@ -38,3 +38,11 @@ eig(A) =
 
 
 ![image](https://github.com/user-attachments/assets/e2448d90-7c96-4108-a19a-1608e3130e96)
+
+
+Python version
+
+![image](https://github.com/user-attachments/assets/f557a3ce-dd34-42b6-9d8e-ec0c4bf02e67)
+
+![image](https://github.com/user-attachments/assets/78567e56-817d-4d0a-8204-56c9450a8497)
+
