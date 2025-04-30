@@ -48,7 +48,7 @@ plt.show()
 np.savez(
     'interested_section_output.npz',
     interested_time=interested_time.to_numpy(),
-    interested_TrakingError=interested_TrackingError.to_numpy(),
-    interested_der_interested_TrakingError=interested_der_interested_TrackingError.to_numpy(),
-    der_der_interested_TrakingError=der_der_interested_TrackingError.to_numpy()
+    interested_TrackingError=interested_TrackingError.to_numpy(),
+    interested_der_interested_TrackingError=interested_der_interested_TrackingError.to_numpy(),
+    der_der_interested_TrackingError=der_der_interested_TrackingError.to_numpy()
 )
