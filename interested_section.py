@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 from datetime import datetime
 
 filename = '1号大塔20241201至20250301历史趋势.csv'
@@ -43,3 +44,11 @@ plt.title('Interested Tracking Error and Its Derivative')
 plt.grid(True)
 plt.legend()
 plt.show()
+
+np.savez(
+    'interested_section_output.npz',
+    interested_time=interested_time.to_numpy(),
+    interested_TrakingError=interested_TrackingError.to_numpy(),
+    interested_der_interested_TrakingError=interested_der_interested_TrackingError.to_numpy(),
+    der_der_interested_TrakingError=der_der_interested_TrackingError.to_numpy()
+)
