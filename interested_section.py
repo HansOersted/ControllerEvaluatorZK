@@ -6,7 +6,7 @@ from datetime import datetime
 filename = '1号大塔20241201至20250301历史趋势.csv'
 df = pd.read_csv(filename, encoding='gbk')
 
-# 第二列是时间字符串
+# time string is on the second column
 time_str = df.iloc[:, 1].astype(str).str.strip()
 time = pd.to_datetime(time_str, format='%Y-%m-%d %H:%M:%S')
 
