@@ -40,7 +40,7 @@ plt.plot(interested_time, interested_der_interested_TrackingError, 'r', label='T
 plt.plot(interested_time, der_der_interested_TrackingError, label='Second Tracking Error Derivative')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Value')
-plt.title('Interested Tracking Error and Its Derivative')
+plt.title('Interested Tracking Error and Its Derivatives')
 plt.grid(True)
 plt.legend()
 plt.show()
