@@ -34,6 +34,7 @@ interested_time = interested_time.iloc[:-2].reset_index(drop=True)
 interested_TrackingError = interested_TrackingError.iloc[:-2].reset_index(drop=True)
 interested_der_interested_TrackingError = der_interested_TrackingError.iloc[:-1].reset_index(drop=True)
 
+"""
 plt.figure()
 plt.plot(interested_time, interested_TrackingError, 'b', label='Tracking Error')
 plt.plot(interested_time, interested_der_interested_TrackingError, 'r', label='Tracking Error Derivative')
@@ -44,6 +45,7 @@ plt.title('Interested Tracking Error and Its Derivatives')
 plt.grid(True)
 plt.legend()
 plt.show()
+"""
 
 np.savez(
     'interested_section_output.npz',
