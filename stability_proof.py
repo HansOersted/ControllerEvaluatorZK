@@ -123,15 +123,16 @@ for epoch in range(num_epochs):
     L_out -= learning_rate * dL_out / scale
     b_out -= learning_rate * db_out / scale
 
-    loss_history[epoch] = total_loss_clean
-    constraint_history[epoch] = constraint
+    loss_history[epoch] = total_loss_clean.item()
+    constraint_history[epoch] = constraint.item()
     A_history.append(A)
     L_history.append(L_pred)
 
-    print(f"Epoch {epoch+1}/{num_epochs} - Loss: {float(total_loss_clean):.4f}")
-    print("L_pred =\n", L_pred)
-    print("A =\n", A)
-    print("Eigenvalues of A:", np.linalg.eigvals(A))
+    if epoch % 50 == 0:
+        print(f"Epoch {epoch+1}/{num_epochs} - Loss: {total_loss_clean.item():.4f}")
+        print("L_pred =\n", L_pred)
+        print("A =\n", A)
+        print("Eigenvalues of A:", np.linalg.eigvals(A))
 
 plt.figure()
 plt.plot(loss_history, linewidth=2)
