@@ -17,18 +17,37 @@ TIC3011_SV = T{:, 11};  % reference
 
 TrakingError = TIC3011_SV - TIC3011_PV;
 
-%% start: 1965390, end: 1975960
-interested_index_start = find( time_in_seconds == 1965390, 1);
-interested_index_end = find( time_in_seconds == 1975960, 1);
+%% start: 1965390, end: 1975960  and  start: 3838100, end: 3854000
 
-interested_time = time_in_seconds(interested_index_start : interested_index_end);
-interested_TrakingError = TrakingError(interested_index_start : interested_index_end);
-der_interested_TrakingError = diff(interested_TrakingError)/10;
-der_der_interested_TrakingError = diff(der_interested_TrakingError)/10;
+interested_index_start_first = find( time_in_seconds == 1965390, 1);
+interested_index_end_first = find( time_in_seconds == 1975960, 1);
 
-interested_time = interested_time(1: end-2);
-interested_TrakingError = interested_TrakingError(1: end-2);
-interested_der_interested_TrakingError = der_interested_TrakingError(1: end-1);
+interested_time_first = time_in_seconds(interested_index_start_first : interested_index_end_first);
+interested_TrakingError_first = TrakingError(interested_index_start_first : interested_index_end_first);
+der_interested_TrakingError_first = diff(interested_TrakingError_first)/10;
+der_der_interested_TrakingError_first = diff(der_interested_TrakingError_first)/10;
+
+interested_time_first = interested_time_first(1: end-2);
+interested_TrakingError_first = interested_TrakingError_first(1: end-2);
+interested_der_interested_TrakingError_first = der_interested_TrakingError_first(1: end-1);
+
+
+interested_index_start_second = find( time_in_seconds == 3838100, 1);
+interested_index_end_second = find( time_in_seconds == 3854000, 1);
+
+interested_time_second = time_in_seconds(interested_index_start_second : interested_index_end_second);
+interested_TrakingError_second = TrakingError(interested_index_start_second : interested_index_end_second);
+der_interested_TrakingError_second = diff(interested_TrakingError_second)/10;
+der_der_interested_TrakingError_second = diff(der_interested_TrakingError_second)/10;
+
+interested_time_second = interested_time_second(1: end-2);
+interested_TrakingError_second = interested_TrakingError_second(1: end-2);
+interested_der_interested_TrakingError_second = der_interested_TrakingError_second(1: end-1);
+
+interested_time = [interested_time_first; interested_time_second];
+interested_TrakingError = [interested_TrakingError_first; interested_TrakingError_second];
+interested_der_interested_TrakingError = [interested_der_interested_TrakingError_first; interested_der_interested_TrakingError_second];
+interested_der_der_interested_TrakingError = [der_der_interested_TrakingError_first; der_der_interested_TrakingError_second];
 
 %%
 
@@ -41,4 +60,4 @@ grid on;
 hold on
 plot(interested_time, interested_der_interested_TrakingError, 'r', 'DisplayName', 'Tracking Error Derivative');
 hold on
-plot(interested_time, der_der_interested_TrakingError, 'DisplayName', 'Second Tracking Error Derivative');
+plot(interested_time, interested_der_der_interested_TrakingError, 'DisplayName', 'Second Tracking Error Derivative');
