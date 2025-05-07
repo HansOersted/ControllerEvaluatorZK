@@ -12,7 +12,7 @@ time_interested = interested_time;
 
 e_interested = interested_TrakingError;
 de_interested = interested_der_interested_TrakingError;
-dde_interested = der_der_interested_TrakingError;
+dde_interested = interested_der_der_interested_TrakingError;
 
 n1 = 1; % The number of experiments
 dimension = 2;
