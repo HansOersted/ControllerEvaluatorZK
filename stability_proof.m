@@ -209,7 +209,7 @@ grid on;
 %%
 [e,de] = meshgrid(-20:1:20,-20:1:20);
 
-A_plot = A;
+A_plot = A
 
 eig(A)
 
