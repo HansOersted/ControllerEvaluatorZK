@@ -44,6 +44,14 @@ eig(A) =
 
 # Multiple Tracking Pieces Evaluator
 
+## Interested pieces
+
+Two pieces are adopted in training.
+
+![image](https://github.com/user-attachments/assets/ae8d25c4-a732-4a67-95c1-db03ba0fb68a)
+
+![image](https://github.com/user-attachments/assets/3ac3e4db-5e66-4f2e-a267-f89466ec0044)
+
 ## MATLAB version
 
 ![image](https://github.com/user-attachments/assets/b8dadf94-c1f1-458d-aab9-96fea16944e2)
