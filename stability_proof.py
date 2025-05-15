@@ -9,7 +9,7 @@ de_interested = data['interested_der_interested_TrackingError']
 dde_interested = data['der_der_interested_TrackingError']
 
 # important parameters
-lambda_val = 0.00001
+lambda_val = 0.0001
 num_epochs = 100
 learning_rate = 1e-2
 gamma = 1e-4
