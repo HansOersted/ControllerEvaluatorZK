@@ -128,6 +128,8 @@ for epoch in range(num_epochs):
     A_history.append(A)
     L_history.append(L_pred)
 
+    np.savez('final_model_weights.npz', A=A_history[-1])
+
     if epoch % 50 == 0:
         print(f"Epoch {epoch+1}/{num_epochs} - Loss: {total_loss_clean.item():.4f}")
         print("L_pred =\n", L_pred)
