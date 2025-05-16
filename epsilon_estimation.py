@@ -12,7 +12,7 @@ de_interested = data['interested_der_interested_TrackingError']
 dde_interested = data['der_der_interested_TrackingError']
 
 # reshape and prepare data
-lambda_val = 5
+lambda_val = 0.0009
 
 E_interested = np.stack((de_interested, dde_interested), axis=1)
 
