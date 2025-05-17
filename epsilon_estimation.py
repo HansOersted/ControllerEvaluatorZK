@@ -32,3 +32,6 @@ plt.title('Constraints from Training Data')
 plt.grid(True)
 plt.savefig('training_constraint_curve.png')
 plt.close()
+
+print("✅ Constraint plot saved as training_constraint_curve.png")
+print(f"🔍 Max constraint value: {max(constraint_values):.6f}")
