@@ -11,15 +11,16 @@ e_interested = data['interested_TrackingError']
 de_interested = data['interested_der_interested_TrackingError']
 dde_interested = data['der_der_interested_TrackingError']
 
-# reshape and prepare data
 lambda_val = 0.0009
 
-E_interested = np.stack((de_interested, dde_interested), axis=1)
+# match training structure from stability_proof.py
+E_interested = np.column_stack((e_interested, de_interested))
+dE_interested = np.column_stack((de_interested, dde_interested))
 
 constraint_values = []
-for row in E_interested:
-    de = np.array([[row[0]], [row[1]]])
-    dde = np.array([[row[1]], [0]])
+for de_row, dde_row in zip(E_interested, dE_interested):
+    de = de_row.reshape(-1, 1)
+    dde = dde_row.reshape(-1, 1)
     c = (dde.T @ A @ de + de.T @ A @ dde + lambda_val * de.T @ A @ de).item()
     constraint_values.append(c)
 
